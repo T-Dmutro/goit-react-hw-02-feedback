@@ -60,7 +60,7 @@ class Counter extends React.Component {
           onNeutral={this.state.neutral}
           onBad={this.state.bad}
         />)}
-        {!this.state.visible && <p>No feedback given</p>}
+        {!this.state.visible && <p>There is no feedback</p>}
       </div>
     );
   }
