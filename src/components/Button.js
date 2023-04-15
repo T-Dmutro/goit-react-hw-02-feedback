@@ -1,7 +1,7 @@
 import React from "react";
-export const Button = ({onButtonPressGood, onButtonPressNeutral, onButtonPressBad})=>{
+export const Button = ({onButtonPressGood, onButtonPressNeutral, onButtonPressBad, onShow})=>{
  return(
-    <div>
+    <div onClick={onShow}>
     <button type="button" onClick={onButtonPressGood }>
 Good
 </button>
