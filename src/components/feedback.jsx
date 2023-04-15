@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from './FeedbackOptions.js';
+import { Button } from './FeedbackOptions';
 import { Statistics } from './Statistics.js';
 class Counter extends React.Component {
 
