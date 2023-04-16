@@ -1,7 +1,8 @@
 import React from "react";
-export const Button = ({onButtonPressGood, onButtonPressNeutral, onButtonPressBad, onShow})=>{
+import {Section} from './Section.styled'
+export const Button = ({onButtonPressGood, onButtonPressNeutral, onButtonPressBad})=>{
  return(
-    <div onClick={onShow}>
+    <Section >
     <button type="button" onClick={onButtonPressGood }>
 Good
 </button>
@@ -11,6 +12,7 @@ Neutral
 <button type="button" onClick={onButtonPressBad}>
 Bad
 </button>
-</div>
+</Section>
  )
 }
+// onClick={onShow}

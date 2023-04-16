@@ -1,12 +1,13 @@
 import React from 'react';
-export const Statistics = ({ onGood, onNeutral, onBad }) => {
+import {Section} from './Section.styled'
+export const Statistics = ({ onGood, onNeutral, onBad, onCountTotalFeedback,onCountPositiveFeedbackPercentage }) => {
   return (
-    <div>
+    <Section>
       <p>Good:{onGood}</p>
       <p>Neutral:{onNeutral}</p>
       <p>Bad:{onBad}</p>
-      <p>Total:{onGood + onNeutral + onBad}</p>
-      <p>Positive feedback: {`${Math.round(onGood / (onGood + onNeutral + onBad) * 100)}%`}</p>
-    </div>
+      <p>Total:{onCountTotalFeedback()}</p>
+      <p>Positive feedback: {onCountPositiveFeedbackPercentage()}</p>
+    </Section>
   );
 };
