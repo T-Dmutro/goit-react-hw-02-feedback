@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button } from './FeedbackOptions';
 import { Statistics } from './Statistics.js';
-import {Section} from './Section.styled'
+import {Section, Title} from './Section.styled'
 class Counter extends React.Component {
   static defaultProps = {
     initState: {
@@ -51,7 +52,7 @@ class Counter extends React.Component {
   render() {
     return (
       <div>
-        
+        <Section><Title>Please leave feedback</Title></Section>
           <Button
             onButtonPressGood={this.handButtonPressGood}
             onButtonPressNeutral={this.handButtonPressNeutral}
@@ -70,10 +71,24 @@ class Counter extends React.Component {
             />
           ) : null}
        
-        {!this.countTotalFeedback() ? <Section><p>There is no feedback</p></Section> : null}
+        {!this.countTotalFeedback() ? <Section><Title>There is no feedback</Title></Section> : null}
       </div>
     );
   }
+}
+Button.propTypes={
+  onButtonPressGood:PropTypes.func,
+  onButtonPressNeutral:PropTypes.func,
+  onButtonPressBad:PropTypes.func,
+
+};
+Statistics.propTypes={
+  onGood:PropTypes.number,
+  onNeutral:PropTypes.number,
+  onBad:PropTypes.number,
+  onCountTotalFeedback:PropTypes.func,
+  onCountPositiveFeedbackPercentage:PropTypes.func,
+
 }
 
 export default Counter;
