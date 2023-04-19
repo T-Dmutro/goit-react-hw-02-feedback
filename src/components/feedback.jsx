@@ -16,25 +16,31 @@ class Counter extends React.Component {
     neutral: this.props.initState.neutral,
     bad: this.props.initState.bad,
   };
-
-  handButtonPressGood = () => {
-    console.log(`добре ${this.state.good}`);
+  btnReview = event => {
+    const btnValue = event.currentTarget.value;
     this.setState(prevState => ({
-      good: prevState.good + 1,
+      ...prevState,
+      [btnValue]: prevState[btnValue] + 1,
     }));
   };
-  handButtonPressNeutral = () => {
-    console.log(`нейтрально ${this.state.neutral}`);
-    this.setState(prevState => ({
-      neutral: prevState.neutral + 1,
-    }));
-  };
-  handButtonPressBad = () => {
-    console.log(`погано ${this.state.bad}`);
-    this.setState(prevState => ({
-      bad: prevState.bad + 1,
-    }));
-  };
+  // handButtonPressGood = () => {
+  //   console.log(`добре ${this.state.good}`);
+  //   this.setState(prevState => ({
+  //     good: prevState.good + 1,
+  //   }));
+  // };
+  // handButtonPressNeutral = () => {
+  //   console.log(`нейтрально ${this.state.neutral}`);
+  //   this.setState(prevState => ({
+  //     neutral: prevState.neutral + 1,
+  //   }));
+  // };
+  // handButtonPressBad = () => {
+  //   console.log(`погано ${this.state.bad}`);
+  //   this.setState(prevState => ({
+  //     bad: prevState.bad + 1,
+  //   }));
+  // };
   countTotalFeedback = () => {
     let total = this.state.good + this.state.neutral + this.state.bad;
     
@@ -50,15 +56,18 @@ class Counter extends React.Component {
   };
 
   render() {
+    // const { good, neutral, bad } = this.state;
+    const btnNames = Object.keys(this.state);
     return (
       <div>
         <Section><Title>Please leave feedback</Title></Section>
           <Button
-            onButtonPressGood={this.handButtonPressGood}
-            onButtonPressNeutral={this.handButtonPressNeutral}
-            onButtonPressBad={this.handButtonPressBad}
-          />
-
+          options={btnNames} onReview={this.btnReview} />
+             {/* onButtonPressGood={this.handButtonPressGood}
+             onButtonPressNeutral={this.handButtonPressNeutral}
+             onButtonPressBad={this.handButtonPressBad} */}
+         
+          
           {this.countTotalFeedback() ? (
             <Statistics
               onGood={this.state.good}
