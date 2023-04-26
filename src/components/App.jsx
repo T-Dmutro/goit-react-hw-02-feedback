@@ -1,4 +1,4 @@
-import Counter from "./Feedback";
+import Counter from "./feedback";
 export const App = () => {
 
   return (

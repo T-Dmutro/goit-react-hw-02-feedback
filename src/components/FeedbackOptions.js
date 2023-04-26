@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import {Section,ButtonStyle} from './Section.styled'
 export const Button = ({ options, onReview })=>{
  return(
@@ -10,5 +11,9 @@ export const Button = ({ options, onReview })=>{
           ))}
 </Section>
  )
+}
+Section.propTypes={
+  value:PropTypes.string,
+  onReview:PropTypes.func,
 }
 // onClick={onShow}

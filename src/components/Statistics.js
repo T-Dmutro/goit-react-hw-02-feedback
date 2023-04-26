@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Section, TextP,Number} from './Section.styled'
 export const Statistics = ({ onGood, onNeutral, onBad, onCountTotalFeedback,onCountPositiveFeedbackPercentage }) => {
   return (
@@ -11,3 +12,10 @@ export const Statistics = ({ onGood, onNeutral, onBad, onCountTotalFeedback,onCo
     </Section>
   );
 };
+Statistics.propTypes={
+  onGood:PropTypes.number,
+  onNeutral:PropTypes.number,
+  onBad:PropTypes.number,
+  onCountTotalFeedback:PropTypes.func,
+  onCountPositiveFeedbackPercentage:PropTypes.number,
+}
